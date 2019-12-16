@@ -6,26 +6,34 @@ if (!$isOnline) {
     exit
 }
 
+
 Write-Host "Installing NuGet"
 Install-PackageProvider -Name NuGet -Force
 Write-Host "Installing Azure AD Module"
 Install-Module -Name AzureAD -Force
+Write-Host "Installing Microsoft Graph Intune Module"
+Install-Module -Name Microsoft.Graph.Intune -Force
 Write-Host "Installing AutoPilot Module"
 Install-Module -Name WindowsAutoPilotIntune -Force
 Write-Host "Fetching AutoPilot Script"
 Save-Script -Name Get-WindowsAutoPilotInfo -Path ./
 
+
 Write-Output "`n`nLog in to Azure AD..."
-Connect-AutoPilotIntune
+Connect-MSGraph
+
 
 $CSVFile = "$(get-date -Format FileDateTimeUniversal).csv"
 ./Get-WindowsAutoPilotInfo.ps1 -OutputFile $CSVFile
 
+
 # Read CSV and process each device
 $devices = Import-CSV $CSVFile
 
+
 $OrderID = $null
 $OrderID = Read-Host -Prompt "Enter the Order ID / Deployment Group (or leave blank for none)"
+
 
 if ($OrderID) {
     foreach ($device in $devices) {
@@ -40,6 +48,8 @@ if ($OrderID) {
     }
 }
 
+
 Write-Output "It will take several minutes for the device to appear in the Intune portal before a Profile will be assigned."
+
 
 #Remove-Item -Path $CSVFile 
