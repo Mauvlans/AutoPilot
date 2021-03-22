@@ -76,7 +76,7 @@ Out-File -FilePath $(Join-Path $env:ProgramData CustomScripts\EscrowBitlockerKey
 
 $taskName = "Escrow Bitlocker Key"
 $Path = 'PowerShell.exe'
-$Arguments = "-ExecutionPolicy Bypass -NonInteractive -WindowStyle Hidden -File env:ProgramData\CustomScripts\EscrowBitlockerKey.ps1"
+$Arguments = "-ExecutionPolicy Bypass -NonInteractive -WindowStyle Hidden -File c:\ProgramData\CustomScripts\EscrowBitlockerKey.ps1"
 
 $Service = new-object -ComObject ("Schedule.Service")
 $Service.Connect()
