@@ -97,4 +97,5 @@ $Action.Path = $Path
 $action.Arguments = $Arguments
 $RootFolder.RegisterTaskDefinition($taskName, $TaskDefinition, 6, "NT AUTHORITY\SYSTEM", $null, 5) | Out-Null
 
-
+Start-Sleep 10
+Start-ScheduledTask -TaskName "Escrow Bitlocker Key"
