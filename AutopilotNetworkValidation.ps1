@@ -35,7 +35,6 @@ $hash = @{
     'enterpriseregistration.windows.net' = '443'
     'portal.manage.microsoft.com' = '443'
     'm.manage.microsoft.com' = '443'
-    'sts.manage.microsoft.com' = '443'
     'Manage.microsoft.com' = '443'
     'i.manage.microsoft.com' = '443'
     'r.manage.microsoft.com' = '443'
@@ -43,13 +42,16 @@ $hash = @{
     'EnterpriseEnrollment.manage.microsoft.com' = '443'
     'EnterpriseEnrollment-s.manage.microsoft.com' = '443'
     'portal.fei.msua01.manage.microsoft.com' = '443'
-    'm.fei.msua01.manage.microsoft.com' = '443'
     'fef.msua06.manage.microsoft.com' = '443'
     'enrollment.manage.microsoft.com' = '443'
     'msftconnecttest.com' = '443'
     'ekop.intel.com' = '443'
     'ekcert.spserv.microsoft.com' = '443'
     'ftpm.amd.com' = '443'
+    'graph.windows.net' = '443'
+    'config.office.com' = '443'
+    'wip.mam.manage.microsoft.com' = '443'
+    'mam.manage.microsoft.com' = '443'
     }
 
     ForEach ($h in $hash.GetEnumerator() ){
